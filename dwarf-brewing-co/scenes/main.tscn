@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://clnhcq0wecm6y" path="res://scripts/computer_menu_container.gd" id="3_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://5dqca73bq508" path="res://assets/grey_panel.png" id="4_6iyac"]
 [ext_resource type="Script" uid="uid://d1rp2nlqw04qn" path="res://scripts/bar_node.gd" id="5_kry3j"]
-[ext_resource type="Script" uid="uid://clwdkygjpt040" path="res://Scenes/computer_node.gd" id="8_344ge"]
 [ext_resource type="Script" uid="uid://b425wrfmf1r3" path="res://scripts/cask_node.gd" id="9_d1ilt"]
+[ext_resource type="Script" uid="uid://clwdkygjpt040" path="res://scripts/computer_node.gd" id="11_ya4ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
 size = Vector2(32, 32)
@@ -187,7 +187,7 @@ shape = SubResource("RectangleShape2D_21xkr")
 
 [node name="DwarvenComputerNode" type="Node2D" parent="."]
 position = Vector2(157, -170)
-script = ExtResource("8_344ge")
+script = ExtResource("11_ya4ey")
 
 [node name="Sprite2D" type="Sprite2D" parent="DwarvenComputerNode"]
 scale = Vector2(0.25, 0.25)
