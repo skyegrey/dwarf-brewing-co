@@ -1,0 +1,200 @@
+[gd_scene load_steps=18 format=3 uid="uid://dugsbi8ulvqpb"]
+
+[ext_resource type="Script" uid="uid://blt4ibaldwi7l" path="res://scripts/ui.gd" id="1_6bp64"]
+[ext_resource type="Script" uid="uid://cipdoa0h6gwyq" path="res://scripts/player_character.gd" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://qe6ck4eku0vc" path="res://icon.svg" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://b3qrhom37rco2" path="res://scripts/inventory.gd" id="2_344ge"]
+[ext_resource type="Texture2D" uid="uid://03oqt7h5j3gu" path="res://assets/modal-background.png" id="2_ynf5e"]
+[ext_resource type="Script" uid="uid://c6aqf7qlrg5ef" path="res://scripts/plant_node.gd" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://clnhcq0wecm6y" path="res://scripts/computer_menu_container.gd" id="3_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://5dqca73bq508" path="res://assets/grey_panel.png" id="4_6iyac"]
+[ext_resource type="Script" uid="uid://d1rp2nlqw04qn" path="res://scripts/bar_node.gd" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://clwdkygjpt040" path="res://Scenes/computer_node.gd" id="8_344ge"]
+[ext_resource type="Script" uid="uid://b425wrfmf1r3" path="res://scripts/cask_node.gd" id="9_d1ilt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
+size = Vector2(32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21xkr"]
+size = Vector2(32, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
+size = Vector2(32, 32)
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 800.0
+script = ExtResource("1_6bp64")
+
+[node name="GoldLabel" type="RichTextLabel" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 602.0
+offset_bottom = 201.0
+text = "Money"
+
+[node name="ModalBackground" type="TextureRect" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ynf5e")
+
+[node name="ComputerMenuContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 800.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+script = ExtResource("3_d1ilt")
+
+[node name="TextureRect" type="NinePatchRect" parent="CanvasLayer/UI/ComputerMenuContainer"]
+layout_mode = 2
+texture = ExtResource("4_6iyac")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/ComputerMenuContainer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_344ge")
+
+[node name="PlayerCharacter" type="Node2D" parent="."]
+script = ExtResource("1_8gbba")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+zoom = Vector2(1.3, 1.3)
+
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerCharacter"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jjgbg")
+metadata/_edit_lock_ = true
+
+[node name="CarriedItem" type="Sprite2D" parent="PlayerCharacter"]
+visible = false
+position = Vector2(0, -16)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_jjgbg")
+
+[node name="ToolHitbox" type="Area2D" parent="PlayerCharacter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/ToolHitbox"]
+shape = SubResource("RectangleShape2D_bo1nx")
+metadata/_edit_lock_ = true
+
+[node name="PlantNode" type="Node2D" parent="."]
+position = Vector2(-172, -56)
+script = ExtResource("3_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantNode"]
+self_modulate = Color(0, 1, 0, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jjgbg")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="PlantNode"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantNode/Area2D"]
+shape = SubResource("RectangleShape2D_8gbba")
+metadata/_edit_lock_ = true
+
+[node name="CaskNode" type="Node2D" parent="."]
+position = Vector2(78, 149)
+script = ExtResource("9_d1ilt")
+
+[node name="Sprite2D" type="Sprite2D" parent="CaskNode"]
+self_modulate = Color(0.81752074, 0.66219383, 0.25706986, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jjgbg")
+metadata/_edit_lock_ = true
+
+[node name="FinishedItemSprite" type="Sprite2D" parent="CaskNode"]
+visible = false
+position = Vector2(0, -16)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_jjgbg")
+
+[node name="Area2D" type="Area2D" parent="CaskNode"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaskNode/Area2D"]
+shape = SubResource("RectangleShape2D_kry3j")
+metadata/_edit_lock_ = true
+
+[node name="BrewProgressBar" type="ProgressBar" parent="CaskNode"]
+visible = false
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = -16.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_jjvhh")
+show_percentage = false
+
+[node name="BarNode" type="Node2D" parent="."]
+position = Vector2(275, -2)
+script = ExtResource("5_kry3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="BarNode"]
+self_modulate = Color(0.84771705, 0.4484113, 0, 1)
+scale = Vector2(0.25, 1)
+texture = ExtResource("1_jjgbg")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="BarNode"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarNode/Area2D"]
+shape = SubResource("RectangleShape2D_21xkr")
+
+[node name="DwarvenComputerNode" type="Node2D" parent="."]
+position = Vector2(157, -170)
+script = ExtResource("8_344ge")
+
+[node name="Sprite2D" type="Sprite2D" parent="DwarvenComputerNode"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jjgbg")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="DwarvenComputerNode"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DwarvenComputerNode/Area2D"]
+shape = SubResource("RectangleShape2D_344ge")
