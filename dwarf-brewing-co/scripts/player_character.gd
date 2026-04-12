@@ -13,10 +13,11 @@ var has_carried_item: bool = false
 
 # Children Nodes
 @onready var tool_hitbox = $ToolHitbox
-@onready var carried_item = $CarriedItem
+@onready var active_item_sprite = $ActiveItemSprite
 
 func _ready() -> void:
 	_setup_tool_hitbox_signals()
+	active_item_sprite.visible = false
 
 func _setup_tool_hitbox_signals():
 	tool_hitbox.area_entered.connect(_set_interactable)
@@ -65,19 +66,12 @@ func _get_tool_direction(movement_vector: Vector2) -> Vector2i:
 
 func _handle_interact():
 	if interactable:
-		interactable.interact(self)
+		interactable.interact()
 
-func _update_carried_item():
-	has_carried_item = true
-	carried_item.visible = true
-
-# Pubilc Functions
-func add_to_inventory():
-	_update_carried_item()
-
-func consume_carried_item():
-	has_carried_item = false
-	carried_item.visible = false
-
-func earn_gold(gold_amount: int):
-	inventory.add_gold(gold_amount)
+func update_active_item():
+	var active_item_resource: ItemResource = inventory.get_selected_item()
+	if active_item_resource:
+		active_item_sprite.visible = true
+		active_item_sprite.texture = active_item_resource.atlas_texture
+	else:
+		active_item_sprite.visible = false

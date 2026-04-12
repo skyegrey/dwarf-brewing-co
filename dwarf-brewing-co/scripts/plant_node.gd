@@ -1,5 +1,8 @@
 class_name PlantNode extends Interactable
 
-func interact(player_character: PlayerCharacter) -> void:
-	#var crop = harvest()
-	player_character.add_to_inventory()
+@onready var inventory = %Inventory
+
+@onready var crop: ItemResource = preload("uid://b8nfnqn6lk755")
+
+func interact() -> void:
+	inventory.add_item(crop)

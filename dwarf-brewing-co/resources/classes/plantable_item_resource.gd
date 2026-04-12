@@ -1,0 +1,1 @@
+class_name PlantableItemResource extends ItemResource

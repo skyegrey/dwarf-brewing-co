@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlantableItemResource" load_steps=2 format=3 uid="uid://1uydqbfi33bw"]
+
+[ext_resource type="Script" uid="uid://b7vh3jvscmsb5" path="res://resources/classes/plantable_item_resource.gd" id="1_jeesb"]
+
+[resource]
+script = ExtResource("1_jeesb")
+metadata/_custom_type_script = "uid://b7vh3jvscmsb5"

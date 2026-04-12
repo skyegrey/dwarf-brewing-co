@@ -1,11 +1,16 @@
 class_name CaskNode extends Interactable
 
+const BEER = preload("uid://cutqkvsijjsfa")
+
+@onready var inventory = %Inventory
+
 # Properties
 @export var base_brewing_time: float = 3.0 # seconds
 
 # State
 @export var is_brewing: bool = false
 @export var has_finished_item: bool = false
+var finished_product: ItemResource
 
 # Children Nodes
 @onready var brew_progress_bar: ProgressBar = $BrewProgressBar
@@ -15,13 +20,13 @@ func _process(delta) -> void:
 	if is_brewing:
 		_update_brewing_progress_bar(delta)
 
-func interact(player_character: PlayerCharacter) -> void:
-	if has_finished_item:
-		_pickup_finished_item(player_character)
+func interact() -> void:
+	if finished_product:
+		_pickup_finished_item()
 		
 	elif not is_brewing:
-		if player_character.has_carried_item:
-			player_character.consume_carried_item()
+		if inventory.get_active_item() is BrewableItemResource:
+			inventory.consume_active_item()
 			_brew()
 
 func _brew() -> void:
@@ -35,12 +40,18 @@ func _update_brewing_progress_bar(delta: float) -> void:
 
 func _finish_brewing():
 	is_brewing = false
+	finished_product = BEER
 	brew_progress_bar.value = 0
 	brew_progress_bar.visible = false
-	finished_item_sprite.visible = true
-	has_finished_item = true
+	_update_finish_item_sprite()
 
-func _pickup_finished_item(player_character: PlayerCharacter) -> void:
-	player_character.add_to_inventory()
-	finished_item_sprite.visible = false
-	has_finished_item = false
+func _pickup_finished_item() -> void:
+	inventory.add_item(finished_product)
+	finished_product = null
+	_update_finish_item_sprite()
+
+func _update_finish_item_sprite():
+	if finished_product:
+		finished_item_sprite.texture = finished_product.atlas_texture
+	else:
+		finished_item_sprite.texture = null

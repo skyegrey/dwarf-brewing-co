@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BrewableItemResource" load_steps=4 format=3 uid="uid://b8nfnqn6lk755"]
+
+[ext_resource type="Script" uid="uid://bqmrwi82t58ii" path="res://resources/classes/brewable_item_resource.gd" id="1_4bu4d"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_qrpia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixvxj"]
+atlas = ExtResource("1_qrpia")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_4bu4d")
+name = "Hops"
+atlas_texture = SubResource("AtlasTexture_ixvxj")
+metadata/_custom_type_script = "uid://bqmrwi82t58ii"
