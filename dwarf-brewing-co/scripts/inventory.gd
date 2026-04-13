@@ -10,17 +10,23 @@ class_name Inventory extends Node
 
 @export var selected_item: int = 0
 
+const HOPS_SEEDS = preload("uid://1uydqbfi33bw")
 
 func _ready() -> void:
 	ui.update_gold(gold)
 	_setup_inventory()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_add_seed"):
+		add_item(HOPS_SEEDS)
 	_update_hotbar_active_item()
-	
 
 func add_gold(amount: int) -> void:
 	gold += amount
+	ui.update_gold(gold)
+
+func spend_gold(amount: int) -> void:
+	gold -= amount
 	ui.update_gold(gold)
 
 func _setup_inventory():
@@ -38,9 +44,11 @@ func change_selected_item(new_selected_item):
 	selected_item = new_selected_item
 	player_character.update_active_item()
 
-func consume_active_item() -> void:
+func consume_active_item() -> ItemResource:
+	var active_item = inventory[selected_item]
 	inventory[selected_item] = null
 	update_inventory_displays()
+	return active_item
 
 func update_inventory_displays():
 	ui.update_inventory(inventory)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtlkjcavbqns5"]
+
+[ext_resource type="Script" uid="uid://3kqq7txc8vjc" path="res://scenes/soil_node.gd" id="1_mqv53"]
+[ext_resource type="Texture2D" uid="uid://d2jscqdoibdlw" path="res://assets/item_sprites/spritesheet-export.png" id="2_8ke0h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
+atlas = ExtResource("2_8ke0h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
+size = Vector2(32, 32)
+
+[node name="SoilNode" type="Node2D"]
+script = ExtResource("1_mqv53")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_jbj1t")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_muem4")

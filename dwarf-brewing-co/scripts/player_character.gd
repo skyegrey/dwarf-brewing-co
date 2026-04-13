@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		_update_tool_hitbox(_get_tool_direction(movement_vector))
 	if Input.is_action_just_pressed("ui_interact"):
 		_handle_interact()
-	
+
 func _get_movement_vector() -> Vector2:
 	return Input.get_vector(
 		"ui_left", 

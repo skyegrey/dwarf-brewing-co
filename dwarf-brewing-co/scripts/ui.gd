@@ -10,13 +10,21 @@ const HOTBAR_ITEM = preload("uid://d1j54h36qkh0b")
 
 @onready var is_computer_menu_displayed: bool = false
 
+@onready var inventory: Inventory = %Inventory
+
+const HOPS_SEEDS = preload("uid://1uydqbfi33bw")
+
 func _ready():
 	_setup_hotbar()
 
 func _process(delta) -> void:
-	if is_computer_menu_displayed:
-		if Input.is_action_just_pressed("ui_close"):
-			hide_computer_menu()	
+	if Input.is_action_just_pressed("ui_interact"):
+		if is_computer_menu_displayed:
+			_purchase_seeds()
+	
+	if Input.is_action_just_pressed("ui_close"):
+		if is_computer_menu_displayed:
+			hide_computer_menu()
 
 func update_gold(new_gold_value):
 	gold_label.text = str("Money: ", new_gold_value)
@@ -55,3 +63,9 @@ func update_selected_item(
 	) -> void:
 		hotbar_h_box.get_child(old_selected_item_index).set_inactive()
 		hotbar_h_box.get_child(new_selected_item_index).set_active()
+
+func _purchase_seeds():
+	var purchase_price = 1
+	if inventory.gold >= purchase_price:
+		inventory.spend_gold(purchase_price)
+		inventory.add_item(HOPS_SEEDS)
