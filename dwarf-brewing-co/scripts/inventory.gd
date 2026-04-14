@@ -15,6 +15,9 @@ const HOPS_SEEDS = preload("uid://1uydqbfi33bw")
 func _ready() -> void:
 	ui.update_gold(gold)
 	_setup_inventory()
+	add_item(HOPS_SEEDS)
+	add_item(HOPS_SEEDS)
+	add_gold(10)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_add_seed"):

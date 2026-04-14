@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp57bmaoke17m"]
+[gd_scene load_steps=5 format=3 uid="uid://bp57bmaoke17m"]
 
 [ext_resource type="Script" uid="uid://c6aqf7qlrg5ef" path="res://scripts/plant_node.gd" id="1_fkg27"]
-[ext_resource type="Texture2D" uid="uid://qe6ck4eku0vc" path="res://icon.svg" id="2_16gpg"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="2_fkg27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16gpg"]
+atlas = ExtResource("2_fkg27")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkg27"]
 bg_color = Color(0, 1, 0, 1)
@@ -13,16 +17,16 @@ corner_radius_bottom_left = 6
 [node name="PlantNode" type="Node2D"]
 script = ExtResource("1_fkg27")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 0, 1)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_16gpg")
+texture = SubResource("AtlasTexture_16gpg")
+offset = Vector2(0, -8)
 metadata/_edit_lock_ = true
 
 [node name="GrowthProgressBar" type="ProgressBar" parent="."]
 offset_left = -16.0
-offset_top = -21.0
+offset_top = -27.0
 offset_right = 16.0
-offset_bottom = -16.0
+offset_bottom = -22.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_fkg27")
 show_percentage = false

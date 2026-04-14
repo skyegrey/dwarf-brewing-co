@@ -5,6 +5,7 @@ const HOTBAR_ITEM = preload("uid://d1j54h36qkh0b")
 @onready var gold_label: RichTextLabel = %GoldLabel
 @onready var modal_background = %ModalBackground
 @onready var computer_menu_container = %ComputerMenuContainer
+@onready var open_time = %OpenTime
 
 @onready var hotbar_h_box = %HotbarHBox
 
@@ -69,3 +70,13 @@ func _purchase_seeds():
 	if inventory.gold >= purchase_price:
 		inventory.spend_gold(purchase_price)
 		inventory.add_item(HOPS_SEEDS)
+
+func update_bar_open_time(time_remaining: float):
+	var minutes_remaining = '%02d' % (int(time_remaining) / 60)
+	var seconds_remaining = '%02d' % (int(time_remaining) % 60)
+	open_time.text = str(
+		'Bar Open in: ', minutes_remaining, ':', seconds_remaining
+	)
+
+func update_bar_open_time_set_open():
+	open_time.text = 'Bar Open!'
