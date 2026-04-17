@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BrewedItemResource" load_steps=4 format=3 uid="uid://gxxamyo377qk"]
+
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_csdkb"]
+[ext_resource type="Script" uid="uid://uk1oblnq23r1" path="res://resources/classes/brewed_item_resource.gd" id="1_scpgq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghb8c"]
+atlas = ExtResource("1_csdkb")
+region = Rect2(32, 96, 32, 32)
+
+[resource]
+script = ExtResource("1_scpgq")
+name = "Strawberry Beer"
+atlas_texture = SubResource("AtlasTexture_ghb8c")
+metadata/_custom_type_script = "uid://uk1oblnq23r1"

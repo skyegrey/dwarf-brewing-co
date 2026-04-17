@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="BrewedItemResource" load_steps=4 format=3 uid="uid://cutqkvsijjsfa"]
+[gd_resource type="Resource" script_class="BrewedItemResource" load_steps=4 format=3 uid="uid://b4cvaygbu37t6"]
 
 [ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_exqxg"]
 [ext_resource type="Script" uid="uid://uk1oblnq23r1" path="res://resources/classes/brewed_item_resource.gd" id="1_hp3ol"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onr0x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_exqxg"]
 atlas = ExtResource("1_exqxg")
 region = Rect2(32, 0, 32, 32)
 
 [resource]
 script = ExtResource("1_hp3ol")
 name = "Beer"
-atlas_texture = SubResource("AtlasTexture_onr0x")
+atlas_texture = SubResource("AtlasTexture_exqxg")
 metadata/_custom_type_script = "uid://uk1oblnq23r1"

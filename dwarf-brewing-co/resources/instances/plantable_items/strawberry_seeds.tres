@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantableItemResource" load_steps=5 format=3 uid="uid://ctqbokikn7ufp"]
+
+[ext_resource type="Script" uid="uid://b7vh3jvscmsb5" path="res://resources/classes/plantable_item_resource.gd" id="1_2kg7e"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_axh2s"]
+[ext_resource type="Resource" uid="uid://dixxxtgmpa543" path="res://resources/instances/plants/strawberry_plant.tres" id="2_fw0d2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk6jb"]
+atlas = ExtResource("1_axh2s")
+region = Rect2(64, 96, 32, 32)
+
+[resource]
+script = ExtResource("1_2kg7e")
+plant = ExtResource("2_fw0d2")
+name = "Strawberry Seed"
+atlas_texture = SubResource("AtlasTexture_dk6jb")
+metadata/_custom_type_script = "uid://b7vh3jvscmsb5"

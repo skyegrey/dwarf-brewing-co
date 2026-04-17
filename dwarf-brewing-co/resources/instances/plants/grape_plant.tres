@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://b8aj1q34lnd2y"]
+
+[ext_resource type="Script" uid="uid://jv7ovcq6w0jo" path="res://resources/classes/plant_resource.gd" id="1_1jv1d"]
+[ext_resource type="Resource" uid="uid://b1avd7thhqpd0" path="res://resources/instances/brewable_items/grapes.tres" id="1_34230"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_m1tst"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34230"]
+atlas = ExtResource("1_m1tst")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e64r"]
+atlas = ExtResource("1_m1tst")
+region = Rect2(128, 64, 32, 32)
+
+[resource]
+script = ExtResource("1_1jv1d")
+growth_sprite = SubResource("AtlasTexture_3e64r")
+grown_sprite = SubResource("AtlasTexture_34230")
+finished_product = ExtResource("1_34230")
+metadata/_custom_type_script = "uid://jv7ovcq6w0jo"

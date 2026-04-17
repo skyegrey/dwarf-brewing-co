@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantableItemResource" load_steps=5 format=3 uid="uid://6mi74r7fxt52"]
+
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_k04jd"]
+[ext_resource type="Script" uid="uid://b7vh3jvscmsb5" path="res://resources/classes/plantable_item_resource.gd" id="1_q5miw"]
+[ext_resource type="Resource" uid="uid://b8aj1q34lnd2y" path="res://resources/instances/plants/grape_plant.tres" id="2_e8xef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4ein"]
+atlas = ExtResource("1_k04jd")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_q5miw")
+plant = ExtResource("2_e8xef")
+name = "Grape Seed"
+atlas_texture = SubResource("AtlasTexture_q4ein")
+metadata/_custom_type_script = "uid://b7vh3jvscmsb5"

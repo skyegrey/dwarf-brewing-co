@@ -1,18 +1,14 @@
 class_name PlantNode extends Interactable
 
 @onready var inventory: Inventory
-@onready var crop: ItemResource = preload("uid://b8nfnqn6lk755")
 @onready var growth_time: float = 5 # seconds
 
 @onready var growth_progress_bar: ProgressBar = $GrowthProgressBar
 @onready var is_grown: bool = false
 
-const HOPS_PLANT = preload("uid://bn61sdf1bcb8y")
-
 @onready var sprite = $Sprite
 
-func _ready():
-	sprite.texture = HOPS_PLANT.growth_sprite
+@onready var plant_resource: PlantResource
 
 func _process(delta) -> void:
 	if not is_grown:
@@ -20,7 +16,7 @@ func _process(delta) -> void:
 
 func interact() -> void:
 	if is_grown:
-		inventory.add_item(crop)
+		inventory.add_item(plant_resource.finished_product)
 		queue_free()
 
 func _update_growth_progress_bar(delta: float):
@@ -29,9 +25,13 @@ func _update_growth_progress_bar(delta: float):
 		_finish_growing()
 
 func _finish_growing():
-	sprite.texture = HOPS_PLANT.grown_sprite
+	sprite.texture = plant_resource.grown_sprite
 	is_grown = true
 	growth_progress_bar.visible = false
 
 func skip_growth_phase():
 	_finish_growing()
+
+func set_plant_resource(_plant_resource: PlantResource):
+	plant_resource = _plant_resource
+	sprite.texture = plant_resource.growth_sprite

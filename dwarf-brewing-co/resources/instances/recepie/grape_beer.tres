@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeResource" load_steps=6 format=3 uid="uid://cuscqn3gwj0ur"]
+
+[ext_resource type="Script" uid="uid://bqmrwi82t58ii" path="res://resources/classes/brewable_item_resource.gd" id="1_g40u2"]
+[ext_resource type="Resource" uid="uid://bkf5gvjwer62b" path="res://resources/instances/brewed_items/grape_beer.tres" id="1_rk1rj"]
+[ext_resource type="Script" uid="uid://1k36agh1nxlj" path="res://resources/classes/recipe_resource.gd" id="2_wcgrr"]
+[ext_resource type="Resource" uid="uid://b1avd7thhqpd0" path="res://resources/instances/brewable_items/grapes.tres" id="3_d0eci"]
+[ext_resource type="Resource" uid="uid://b8nfnqn6lk755" path="res://resources/instances/brewable_items/hops.tres" id="4_d0eci"]
+
+[resource]
+script = ExtResource("2_wcgrr")
+finished_product = ExtResource("1_rk1rj")
+ingredients = Dictionary[ExtResource("1_g40u2"), int]({
+ExtResource("3_d0eci"): 0,
+ExtResource("4_d0eci"): 0
+})
+metadata/_custom_type_script = "uid://1k36agh1nxlj"

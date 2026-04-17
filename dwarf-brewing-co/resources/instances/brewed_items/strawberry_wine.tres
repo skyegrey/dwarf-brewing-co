@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BrewedItemResource" load_steps=4 format=3 uid="uid://beildnpx3fa83"]
+
+[ext_resource type="Script" uid="uid://uk1oblnq23r1" path="res://resources/classes/brewed_item_resource.gd" id="1_58t21"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_kbe0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxeer"]
+atlas = ExtResource("1_kbe0t")
+region = Rect2(288, 96, 32, 32)
+
+[resource]
+script = ExtResource("1_58t21")
+name = "Strawberry Wine"
+atlas_texture = SubResource("AtlasTexture_lxeer")
+metadata/_custom_type_script = "uid://uk1oblnq23r1"

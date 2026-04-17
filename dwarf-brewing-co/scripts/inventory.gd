@@ -11,6 +11,9 @@ class_name Inventory extends Node
 @export var selected_item: int = 0
 
 const HOPS_SEEDS = preload("uid://1uydqbfi33bw")
+const GRAPE_SEEDS = preload("uid://6mi74r7fxt52")
+const BLUEBERRY_SEEDS = preload("uid://i5tglhl5cevv")
+const STRAWBERRY_SEEDS = preload("uid://ctqbokikn7ufp")
 
 func _ready() -> void:
 	ui.update_gold(gold)
@@ -22,6 +25,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_add_seed"):
 		add_item(HOPS_SEEDS)
+		add_item(GRAPE_SEEDS)
+		add_item(BLUEBERRY_SEEDS)
+		add_item(STRAWBERRY_SEEDS)
 	_update_hotbar_active_item()
 
 func add_gold(amount: int) -> void:

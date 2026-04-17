@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantableItemResource" load_steps=5 format=3 uid="uid://i5tglhl5cevv"]
+
+[ext_resource type="Script" uid="uid://b7vh3jvscmsb5" path="res://resources/classes/plantable_item_resource.gd" id="1_gqlo0"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_misv8"]
+[ext_resource type="Resource" uid="uid://cy86jv5fvds84" path="res://resources/instances/plants/blueberry_plant.tres" id="2_misv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_077a4"]
+atlas = ExtResource("1_misv8")
+region = Rect2(64, 64, 32, 32)
+
+[resource]
+script = ExtResource("1_gqlo0")
+plant = ExtResource("2_misv8")
+name = "Blueberry Seeds"
+atlas_texture = SubResource("AtlasTexture_077a4")
+metadata/_custom_type_script = "uid://b7vh3jvscmsb5"

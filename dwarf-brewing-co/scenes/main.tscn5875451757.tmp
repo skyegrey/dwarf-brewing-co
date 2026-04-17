@@ -336,6 +336,9 @@ script = ExtResource("2_344ge")
 [node name="KegNode" type="Node2D" parent="."]
 position = Vector2(78, 149)
 script = ExtResource("9_d1ilt")
+base_brewing_time = null
+is_brewing = null
+has_finished_brewing = null
 
 [node name="Sprite2D" type="Sprite2D" parent="KegNode"]
 texture = SubResource("AtlasTexture_a8y0u")

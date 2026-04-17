@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BrewedItemResource" load_steps=4 format=3 uid="uid://djct0lrvwbv12"]
+
+[ext_resource type="Script" uid="uid://uk1oblnq23r1" path="res://resources/classes/brewed_item_resource.gd" id="1_m31yi"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_ts4i1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41yox"]
+atlas = ExtResource("1_ts4i1")
+region = Rect2(32, 64, 32, 32)
+
+[resource]
+script = ExtResource("1_m31yi")
+name = "Blueberry Beer"
+atlas_texture = SubResource("AtlasTexture_41yox")
+metadata/_custom_type_script = "uid://uk1oblnq23r1"

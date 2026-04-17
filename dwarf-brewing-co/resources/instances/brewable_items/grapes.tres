@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BrewableItemResource" load_steps=5 format=3 uid="uid://b1avd7thhqpd0"]
+
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_32eoq"]
+[ext_resource type="Script" uid="uid://bqmrwi82t58ii" path="res://resources/classes/brewable_item_resource.gd" id="1_j7fca"]
+[ext_resource type="Resource" uid="uid://dwr40ide2lmi" path="res://resources/instances/brewed_items/grape_wine.tres" id="2_hewun"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hewun"]
+atlas = ExtResource("1_32eoq")
+region = Rect2(0, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_j7fca")
+finished_product = ExtResource("2_hewun")
+name = "Grapes"
+atlas_texture = SubResource("AtlasTexture_hewun")
+metadata/_custom_type_script = "uid://bqmrwi82t58ii"

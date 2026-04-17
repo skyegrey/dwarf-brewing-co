@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="PlantResource" load_steps=5 format=3 uid="uid://bn61sdf1bcb8y"]
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://bn61sdf1bcb8y"]
 
+[ext_resource type="Resource" uid="uid://b8nfnqn6lk755" path="res://resources/instances/brewable_items/hops.tres" id="1_43deh"]
 [ext_resource type="Script" uid="uid://jv7ovcq6w0jo" path="res://resources/classes/plant_resource.gd" id="1_evtmb"]
 [ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_wyr1x"]
 
@@ -15,4 +16,5 @@ region = Rect2(128, 0, 32, 32)
 script = ExtResource("1_evtmb")
 growth_sprite = SubResource("AtlasTexture_kpuc0")
 grown_sprite = SubResource("AtlasTexture_43deh")
+finished_product = ExtResource("1_43deh")
 metadata/_custom_type_script = "uid://jv7ovcq6w0jo"

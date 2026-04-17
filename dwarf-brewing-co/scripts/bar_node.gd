@@ -11,7 +11,7 @@ class_name BarNode extends Interactable
 
 # Properties
 @onready var requestable_drinks = [
-	preload("uid://cutqkvsijjsfa")
+	preload("uid://b4cvaygbu37t6")
 ]
 @export var max_patrons = 5
 

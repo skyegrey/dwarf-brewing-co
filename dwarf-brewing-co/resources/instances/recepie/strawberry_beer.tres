@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeResource" load_steps=6 format=3 uid="uid://c2e8quasj0mtd"]
+
+[ext_resource type="Script" uid="uid://bqmrwi82t58ii" path="res://resources/classes/brewable_item_resource.gd" id="1_24b4q"]
+[ext_resource type="Resource" uid="uid://gxxamyo377qk" path="res://resources/instances/brewed_items/strawberry_beer.tres" id="1_ahoxn"]
+[ext_resource type="Script" uid="uid://1k36agh1nxlj" path="res://resources/classes/recipe_resource.gd" id="2_740v1"]
+[ext_resource type="Resource" uid="uid://cnjwdigi8se47" path="res://resources/instances/brewable_items/strawberries.tres" id="3_8n6g0"]
+[ext_resource type="Resource" uid="uid://b8nfnqn6lk755" path="res://resources/instances/brewable_items/hops.tres" id="4_o0r6w"]
+
+[resource]
+script = ExtResource("2_740v1")
+finished_product = ExtResource("1_ahoxn")
+ingredients = Dictionary[ExtResource("1_24b4q"), int]({
+ExtResource("3_8n6g0"): 0,
+ExtResource("4_o0r6w"): 0
+})
+metadata/_custom_type_script = "uid://1k36agh1nxlj"

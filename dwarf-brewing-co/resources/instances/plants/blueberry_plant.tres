@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://cy86jv5fvds84"]
+
+[ext_resource type="Resource" uid="uid://7y3fj27ttmd2" path="res://resources/instances/brewable_items/blueberries.tres" id="1_jm3it"]
+[ext_resource type="Script" uid="uid://jv7ovcq6w0jo" path="res://resources/classes/plant_resource.gd" id="1_kh678"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_yoouf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm3it"]
+atlas = ExtResource("1_yoouf")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hla1s"]
+atlas = ExtResource("1_yoouf")
+region = Rect2(128, 128, 32, 32)
+
+[resource]
+script = ExtResource("1_kh678")
+growth_sprite = SubResource("AtlasTexture_hla1s")
+grown_sprite = SubResource("AtlasTexture_jm3it")
+finished_product = ExtResource("1_jm3it")
+metadata/_custom_type_script = "uid://jv7ovcq6w0jo"

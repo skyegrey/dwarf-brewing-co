@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://dixxxtgmpa543"]
+
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_534or"]
+[ext_resource type="Resource" uid="uid://cnjwdigi8se47" path="res://resources/instances/brewable_items/strawberries.tres" id="1_ddo5e"]
+[ext_resource type="Script" uid="uid://jv7ovcq6w0jo" path="res://resources/classes/plant_resource.gd" id="1_qx6lj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_534or"]
+atlas = ExtResource("1_534or")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddo5e"]
+atlas = ExtResource("1_534or")
+region = Rect2(128, 192, 32, 32)
+
+[resource]
+script = ExtResource("1_qx6lj")
+growth_sprite = SubResource("AtlasTexture_ddo5e")
+grown_sprite = SubResource("AtlasTexture_534or")
+finished_product = ExtResource("1_ddo5e")
+metadata/_custom_type_script = "uid://jv7ovcq6w0jo"

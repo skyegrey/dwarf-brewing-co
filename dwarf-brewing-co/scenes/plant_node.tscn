@@ -18,7 +18,6 @@ corner_radius_bottom_left = 6
 script = ExtResource("1_fkg27")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-self_modulate = Color(0, 1, 0, 1)
 texture = SubResource("AtlasTexture_16gpg")
 offset = Vector2(0, -8)
 metadata/_edit_lock_ = true

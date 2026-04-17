@@ -1,0 +1,374 @@
+[gd_scene load_steps=25 format=3 uid="uid://dugsbi8ulvqpb"]
+
+[ext_resource type="Script" uid="uid://blt4ibaldwi7l" path="res://scripts/ui.gd" id="1_6bp64"]
+[ext_resource type="Script" uid="uid://cipdoa0h6gwyq" path="res://scripts/player_character.gd" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://qe6ck4eku0vc" path="res://icon.svg" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://b3qrhom37rco2" path="res://scripts/inventory.gd" id="2_344ge"]
+[ext_resource type="Texture2D" uid="uid://03oqt7h5j3gu" path="res://assets/modal-background.png" id="2_ynf5e"]
+[ext_resource type="Script" uid="uid://clnhcq0wecm6y" path="res://scripts/computer_menu_container.gd" id="3_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://5dqca73bq508" path="res://assets/grey_panel.png" id="4_6iyac"]
+[ext_resource type="Script" uid="uid://d1rp2nlqw04qn" path="res://scripts/bar_node.gd" id="5_kry3j"]
+[ext_resource type="Texture2D" uid="uid://c7yw3u18i6w3j" path="res://assets/item_sprites/character-sprite.png" id="8_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="8_eb6dy"]
+[ext_resource type="Script" uid="uid://b425wrfmf1r3" path="res://scripts/keg_node.gd" id="9_d1ilt"]
+[ext_resource type="Script" uid="uid://clwdkygjpt040" path="res://scripts/computer_node.gd" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://0kh8jdrui65r" path="res://scripts/soil_nodes.gd" id="12_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://d2jscqdoibdlw" path="res://assets/item_sprites/spritesheet-export.png" id="14_jkv2x"]
+[ext_resource type="Script" uid="uid://ceuoqwuapvi7l" path="res://scripts/cask_node.gd" id="15_jkv2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("14_jkv2x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("8_eb6dy")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
+size = Vector2(32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21xkr"]
+size = Vector2(32, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
+atlas = ExtResource("8_eb6dy")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
+size = Vector2(32, 32)
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bp64")
+
+[node name="GoldLabel" type="RichTextLabel" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 602.0
+offset_bottom = 201.0
+text = "Money"
+
+[node name="ModalBackground" type="TextureRect" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ynf5e")
+
+[node name="ComputerMenuContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 800.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+script = ExtResource("3_d1ilt")
+
+[node name="TextureRect" type="NinePatchRect" parent="CanvasLayer/UI/ComputerMenuContainer"]
+layout_mode = 2
+texture = ExtResource("4_6iyac")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ShopTabTitleContainer" type="MarginContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+
+[node name="ShopItems" type="MarginContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 450)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer"]
+layout_mode = 2
+
+[node name="ShopItem" type="MarginContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(189, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer/GridContainer/ShopItem"]
+layout_mode = 2
+texture = ExtResource("4_6iyac")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer/GridContainer/ShopItem/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer/GridContainer/ShopItem/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(179, 125)
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer/GridContainer/ShopItem/NinePatchRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_6iyac")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer/GridContainer/ShopItem/NinePatchRect/VBoxContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 11
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/ComputerMenuContainer/TextureRect/VBoxContainer/ShopItems/MarginContainer/GridContainer/ShopItem/NinePatchRect/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_trceg")
+expand_mode = 2
+
+[node name="HotbarContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.88400006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -7.2000732
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 320
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 320
+theme_override_constants/margin_bottom = 15
+
+[node name="HotbarBackground" type="NinePatchRect" parent="CanvasLayer/UI/HotbarContainer"]
+layout_mode = 2
+texture = ExtResource("4_6iyac")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/HotbarContainer/HotbarBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HotbarHBox" type="HBoxContainer" parent="CanvasLayer/UI/HotbarContainer/HotbarBackground/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TimerUI" type="MarginContainer" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -203.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="OpenTime" type="RichTextLabel" parent="CanvasLayer/UI/TimerUI"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Bar Open in: "
+
+[node name="PlayerCharacter" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_8gbba")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+zoom = Vector2(2, 2)
+
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerCharacter"]
+texture = ExtResource("8_a8y0u")
+metadata/_edit_lock_ = true
+
+[node name="ActiveItemSprite" type="Sprite2D" parent="PlayerCharacter"]
+position = Vector2(0, -32)
+texture = ExtResource("8_eb6dy")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="ToolHitbox" type="Area2D" parent="PlayerCharacter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/ToolHitbox"]
+shape = SubResource("RectangleShape2D_bo1nx")
+metadata/_edit_lock_ = true
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_344ge")
+
+[node name="KegNode" type="Node2D" parent="."]
+position = Vector2(78, 149)
+script = ExtResource("9_d1ilt")
+
+[node name="Sprite2D" type="Sprite2D" parent="KegNode"]
+texture = SubResource("AtlasTexture_a8y0u")
+metadata/_edit_lock_ = true
+
+[node name="FinishedItemSprite" type="Sprite2D" parent="KegNode"]
+position = Vector2(0, -32)
+
+[node name="Area2D" type="Area2D" parent="KegNode"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KegNode/Area2D"]
+shape = SubResource("RectangleShape2D_kry3j")
+metadata/_edit_lock_ = true
+
+[node name="BrewProgressBar" type="ProgressBar" parent="KegNode"]
+visible = false
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = -16.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_jjvhh")
+show_percentage = false
+
+[node name="BarNode" type="Node2D" parent="."]
+position = Vector2(328, 1)
+script = ExtResource("5_kry3j")
+max_patrons = null
+
+[node name="Sprite2D" type="Sprite2D" parent="BarNode"]
+self_modulate = Color(0.84771705, 0.4484113, 0, 1)
+scale = Vector2(0.25, 1)
+texture = ExtResource("1_jjgbg")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="BarNode"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarNode/Area2D"]
+shape = SubResource("RectangleShape2D_21xkr")
+metadata/_edit_lock_ = true
+
+[node name="NewQuestTimer" type="Timer" parent="BarNode"]
+wait_time = 3.0
+
+[node name="BarOpenTimer" type="Timer" parent="BarNode"]
+wait_time = 45.0
+one_shot = true
+autostart = true
+
+[node name="Patrons" type="Node2D" parent="BarNode"]
+position = Vector2(34, -40)
+metadata/_edit_lock_ = true
+
+[node name="DwarvenComputerNode" type="Node2D" parent="."]
+position = Vector2(157, -170)
+script = ExtResource("11_ya4ey")
+
+[node name="Sprite2D" type="Sprite2D" parent="DwarvenComputerNode"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jjgbg")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="DwarvenComputerNode"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DwarvenComputerNode/Area2D"]
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="SoilNodes" type="Node2D" parent="."]
+position = Vector2(-283, -133)
+script = ExtResource("12_eb6dy")
+
+[node name="CaskNode" type="Node2D" parent="."]
+position = Vector2(282, -94)
+script = ExtResource("15_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="CaskNode"]
+texture = SubResource("AtlasTexture_jkv2x")
+metadata/_edit_lock_ = true
+
+[node name="CountLabel" type="Label" parent="CaskNode"]
+offset_left = -16.0
+offset_top = -28.0
+offset_right = 16.0
+offset_bottom = -5.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="CaskNode"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaskNode/Area2D"]
+shape = SubResource("RectangleShape2D_jbj1t")
+metadata/_edit_lock_ = true

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1j54h36qkh0b"]
+[gd_scene load_steps=5 format=3 uid="uid://d1j54h36qkh0b"]
 
 [ext_resource type="Texture2D" uid="uid://5dqca73bq508" path="res://assets/grey_panel.png" id="1_s1nil"]
 [ext_resource type="Script" uid="uid://ceg6a0cy5c05e" path="res://scripts/hotbar_item_node.gd" id="2_plo05"]
 [ext_resource type="Texture2D" uid="uid://bibf1m1i60n6b" path="res://assets/active-hotbar-item-sprite.png" id="3_plo05"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bagti"]
 
 [node name="HotbarItemNode" type="NinePatchRect"]
 self_modulate = Color(0.66656864, 0.6665687, 0.66656864, 1)
@@ -11,9 +13,10 @@ texture = ExtResource("1_s1nil")
 script = ExtResource("2_plo05")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 50.0
-offset_bottom = 50.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme_override_constants/margin_left = 9
 theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 9
@@ -23,6 +26,7 @@ theme_override_constants/margin_bottom = 9
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+texture = SubResource("AtlasTexture_bagti")
 
 [node name="ItemHighlight" type="TextureRect" parent="."]
 visible = false
