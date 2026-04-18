@@ -2,6 +2,7 @@ class_name PlayerCharacter extends Node2D
 
 # Scene Refs
 @onready var inventory = %Inventory
+@onready var tile_map_layer: TileMapLayer = %TileMapLayer
 
 # Properties
 @export var move_speed: float = 200.0
@@ -20,15 +21,16 @@ func _ready() -> void:
 	active_item_sprite.visible = false
 
 func _setup_tool_hitbox_signals():
-	tool_hitbox.area_entered.connect(_set_interactable)
-	tool_hitbox.area_exited.connect(_unset_interactable)
+	tool_hitbox.area_entered.connect(_add_interactable)
+	tool_hitbox.area_exited.connect(_remove_interactable)
 
-func _set_interactable(interactable_area: Area2D) -> void:
+func _add_interactable(interactable_area: Area2D) -> void:
 	interactable = interactable_area.get_parent()
 
 # TODO Fix this to only remove if it is the same area
-func _unset_interactable(interactable_area: Area2D) -> void:
-	interactable = null
+func _remove_interactable(interactable_area: Area2D) -> void:
+	if interactable == interactable_area.get_parent():
+		interactable = null
 
 func _process(delta: float) -> void:
 	var movement_vector: Vector2 = _get_movement_vector()
@@ -50,7 +52,9 @@ func _process_movement(movement_vector: Vector2, delta: float) -> void:
 	position += movement_vector * move_speed * delta
 
 func _update_tool_hitbox(tool_direction: Vector2i) -> void:
-	tool_hitbox.position = tool_direction * character_size
+	var player_coordinates = tile_map_layer.local_to_map(position)
+	var tool_coordinate = player_coordinates + tool_direction
+	tool_hitbox.position = to_local(tile_map_layer.map_to_local(tool_coordinate))
 
 func _get_tool_direction(movement_vector: Vector2) -> Vector2i:
 	if abs(movement_vector.x) > abs(movement_vector.y):

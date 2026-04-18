@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyihrell4s07f"]
+
+[ext_resource type="Script" uid="uid://b425wrfmf1r3" path="res://scripts/keg_node.gd" id="1_xw78i"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="2_ucm0n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("2_ucm0n")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
+size = Vector2(32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="KegNode" type="Node2D"]
+script = ExtResource("1_xw78i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_a8y0u")
+metadata/_edit_lock_ = true
+
+[node name="FinishedItemSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kry3j")
+metadata/_edit_lock_ = true
+
+[node name="BrewProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = -16.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_jjvhh")
+show_percentage = false

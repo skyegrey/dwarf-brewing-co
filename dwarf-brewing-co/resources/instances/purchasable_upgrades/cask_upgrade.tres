@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PurchasableUpgradeResource" load_steps=4 format=3 uid="uid://ddr1mw2ba0rf2"]
+
+[ext_resource type="Script" uid="uid://dmt2srj5jeloi" path="res://resources/classes/purchasable_upgrade_resource.gd" id="1_qij6f"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="2_io2bt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs2tc"]
+atlas = ExtResource("2_io2bt")
+region = Rect2(96, 64, 32, 32)
+
+[resource]
+script = ExtResource("1_qij6f")
+name = "Cask"
+texture = SubResource("AtlasTexture_gs2tc")
+metadata/_custom_type_script = "uid://dmt2srj5jeloi"

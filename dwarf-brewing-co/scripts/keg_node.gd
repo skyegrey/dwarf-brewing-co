@@ -1,6 +1,6 @@
 class_name KegNode extends Interactable
 
-@onready var inventory = %Inventory
+@onready var inventory: Inventory
 
 # Properties
 @export var base_brewing_time: float = 3.0 # seconds
@@ -25,8 +25,6 @@ class_name KegNode extends Interactable
 # Children Nodes
 @onready var brew_progress_bar: ProgressBar = $BrewProgressBar
 @onready var finished_item_sprite: Sprite2D = $FinishedItemSprite
-
-
 
 func _process(delta) -> void:
 	if is_brewing:
@@ -57,6 +55,8 @@ func _brew(brewable_item_resource: BrewableItemResource) -> void:
 	brew_progress_bar.visible = true
 
 func find_combined_recipe(new_ingredient: BrewableItemResource) -> RecipeResource:
+	if new_ingredient in brewing_items.keys():
+		return null
 	var combined_ingredients: Dictionary[BrewableItemResource, int] = brewing_items.duplicate()
 	combined_ingredients[new_ingredient] = 0
 	for recipe: RecipeResource in recipes:

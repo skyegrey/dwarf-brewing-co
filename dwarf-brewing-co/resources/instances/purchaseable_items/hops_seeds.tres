@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PurchasableItemResource" load_steps=5 format=3 uid="uid://casreix1rxosj"]
+
+[ext_resource type="Resource" uid="uid://1uydqbfi33bw" path="res://resources/instances/plantable_items/hops_seeds.tres" id="1_njj52"]
+[ext_resource type="Script" uid="uid://bgmkml7qeil8b" path="res://resources/classes/purchasable_item_resource.gd" id="1_plnu7"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="3_6lap3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njj52"]
+atlas = ExtResource("3_6lap3")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_plnu7")
+item_resource = ExtResource("1_njj52")
+name = "Hops Seeds"
+texture = SubResource("AtlasTexture_njj52")
+cost = 1
+metadata/_custom_type_script = "uid://bgmkml7qeil8b"

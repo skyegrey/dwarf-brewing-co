@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwb4v8peidnj7"]
+
+[ext_resource type="Script" uid="uid://7067wgf2xmp2" path="res://scripts/shop_item_node.gd" id="1_6vnqx"]
+[ext_resource type="Texture2D" uid="uid://5dqca73bq508" path="res://assets/grey_panel.png" id="2_ehhh6"]
+[ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="3_rippa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("3_rippa")
+region = Rect2(64, 0, 32, 32)
+
+[node name="ShopItemNode" type="MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+script = ExtResource("1_6vnqx")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(0.85490197, 0.42745098, 0.25882354, 1)
+layout_mode = 2
+texture = ExtResource("2_ehhh6")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 53
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 53
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ehhh6")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="Sprite" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_trceg")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 82)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Hops Seeds"
+horizontal_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1 Gold"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PurchaseButton" type="Button" parent="VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Buy"

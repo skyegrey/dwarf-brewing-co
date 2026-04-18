@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="BrewableItemResource" load_steps=5 format=3 uid="uid://7y3fj27ttmd2"]
+[gd_resource type="Resource" script_class="BrewableItemResource" load_steps=4 format=3 uid="uid://7y3fj27ttmd2"]
 
 [ext_resource type="Script" uid="uid://bqmrwi82t58ii" path="res://resources/classes/brewable_item_resource.gd" id="1_axs1p"]
 [ext_resource type="Texture2D" uid="uid://bl1jlvc1ancna" path="res://assets/item_sprites/spritesheet.png" id="1_t837s"]
-[ext_resource type="Resource" uid="uid://cqo6scxtusku2" path="res://resources/instances/brewed_items/blueberry_wine.tres" id="2_otgl0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otgl0"]
 atlas = ExtResource("1_t837s")
@@ -10,7 +9,6 @@ region = Rect2(0, 64, 32, 32)
 
 [resource]
 script = ExtResource("1_axs1p")
-finished_product = ExtResource("2_otgl0")
 name = "Blueberries"
 atlas_texture = SubResource("AtlasTexture_otgl0")
 metadata/_custom_type_script = "uid://bqmrwi82t58ii"

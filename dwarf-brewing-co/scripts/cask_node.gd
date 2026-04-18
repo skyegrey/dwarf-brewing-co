@@ -1,6 +1,6 @@
 class_name CaskNode extends Interactable
 
-@onready var inventory = %Inventory
+@onready var inventory: Inventory
 
 @onready var count_label = $CountLabel
 
